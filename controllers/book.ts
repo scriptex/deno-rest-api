@@ -1,7 +1,7 @@
-import { Body, Request, Response } from 'https://deno.land/x/oak/mod.ts';
+import { Body, Request, Response } from "https://deno.land/x/oak/mod.ts";
 
-import { Book } from '../models/book.ts';
-import * as booksService from '../services/book.ts';
+import { Book } from "../models/book.ts";
+import * as booksService from "../services/book.ts";
 
 export const getBooks = ({ response }: { response: Response }): void => {
   response.body = {
@@ -43,7 +43,7 @@ export const addBook = async ({
   response.status = success ? 201 : 400;
   response.body = {
     success,
-    message: success ? 'New book added' : 'No data',
+    message: success ? "New book added" : "No data",
   };
 };
 
@@ -65,7 +65,7 @@ export const updateBook = async ({
   response.status = success ? 200 : 404;
   response.body = {
     success,
-    message: success ? `Updated book with id: ${id}` : 'Book not found',
+    message: success ? `Updated book with id: ${id}` : "Book not found",
   };
 };
 
