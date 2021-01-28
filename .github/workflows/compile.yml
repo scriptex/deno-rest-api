@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-16.04
     strategy:
       matrix:
-        deno: ["v1.0.0", "v0.42.0", "v1.x", "v0.x", "nightly"]
+        deno: [v1.7.0", "nightly"]
     name: Run on Deno ${{ matrix.deno }}
     steps:
       - uses: actions/checkout@v2
@@ -21,5 +21,6 @@ jobs:
           deno-version: ${{ matrix.deno }}
       - run: |
           deno --version
-          deno lint --unstable
-          deno run --allow-net=:5000 server.ts
+          ./scripts/format.sh
+          ./scripts/lint.sh
+          ./scripts/compile.sh
