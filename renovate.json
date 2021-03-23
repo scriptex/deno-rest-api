@@ -1,13 +1,23 @@
 {
-  "extends": ["config:base"],
-  "travis": {
-    "enabled": true
-  },
-  "assignees": ["@scriptex"],
-  "labels": ["dependencies"],
-  "rebaseWhen": "conflicted",
-  "vulnerabilityAlerts": {
-    "labels": ["security"],
-    "assignees": ["@scriptex"]
-  }
+	"extends": ["config:base"],
+	"travis": {
+		"enabled": true
+	},
+	"assignees": ["@scriptex"],
+	"labels": ["dependencies"],
+	"rebaseWhen": "conflicted",
+	"vulnerabilityAlerts": {
+		"labels": ["security"],
+		"assignees": ["@scriptex"]
+	},
+	"packageRules": [
+		{
+			"updateTypes": ["patch", "pin", "digest"],
+			"automerge": true
+		}
+	],
+	"lockFileMaintenance": {
+		"enabled": true,
+		"automerge": true
+	}
 }
