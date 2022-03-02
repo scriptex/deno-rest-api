@@ -14,7 +14,7 @@ jobs:
         deno: ["v1.7.0", "nightly"]
     name: Run on Deno ${{ matrix.deno }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup Deno
         uses: denolib/setup-deno@v2
         with:
