@@ -38,7 +38,7 @@ export const addBook = async ({
   const body: Body = await request.body();
   const { hasBody: success } = request;
 
-  success && booksService.addBook((body.value as unknown) as Book);
+  success && booksService.addBook(body.value as unknown as Book);
 
   response.status = success ? 201 : 400;
   response.body = {
@@ -59,7 +59,7 @@ export const updateBook = async ({
   const { id } = params;
   const body: Body = await request.body();
   const success: boolean = body.value
-    ? !!booksService.updateBook(id, (body.value as unknown) as Book)
+    ? !!booksService.updateBook(id, body.value as unknown as Book)
     : false;
 
   response.status = success ? 200 : 404;
