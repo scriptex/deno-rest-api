@@ -1,22 +1,21 @@
 name: Build
 
-on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        deno: ["v1.7.0", "nightly"]
+        deno: [1.x, "1.8.2", canary, ~1.7]
+
     name: Run on Deno ${{ matrix.deno }}
+
     steps:
       - uses: actions/checkout@v2
       - name: Setup Deno
-        uses: denolib/setup-deno@v2
+        uses: denoland/setup-deno@v1
         with:
           deno-version: ${{ matrix.deno }}
       - run: |
