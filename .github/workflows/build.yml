@@ -13,7 +13,7 @@ jobs:
     name: Run on Deno ${{ matrix.deno }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
